@@ -10,12 +10,30 @@
 
 using namespace std;
 
+/** Unpacks postal code information from a buffer into an object
+ * @param file: the file to read data from
+ * @param pc: The PostalCode object that will be filled
+ * @param buff: The buffer containing the postal code data
+ * @post: the PostalCode object will be filled with data
+ * @return: returns -1 if an error occured */
 int unpackPostalCode (PostalCode& pc, PostalCodeBuffer* buff);
 
+/** Fills a map with postal code data for each state
+ * @param stateMap: the map that will be filled with postal code information
+ * @param filename: the name of the file containing postal code data
+ * @param buff: the buffer that will be used to extract the data
+ * @param fileFormat: the format of the postal code file (new or old)
+ * @post: the stateMap will be filled with postal code data for each state
+ * @return: returns true if the operation was successful, otherwise false */
 bool fillTable (map<string, vector<PostalCode> >& stateMap, const char* filename, PostalCodeBuffer* buff, string fileFormat);
 
+/** Shows the table header
+ * @post: prints the table header to the console */
 void displayHeader ();
 
+/** Shows the postal code table data
+ * @param stateMap: contains the postal code data for each state
+ * @post: prints the farthest zip codes for each state in each compass directon */
 void displayTable (const map<string, vector<PostalCode> >& stateMap);
 
 // argv[1] = input file, argv[2] = file format
@@ -32,6 +50,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+	// Places the CLI arguments into variables
 	string filename = argv[1];
 	string fileFormat = argv[2];
 	
@@ -128,6 +147,9 @@ bool fillTable (map<string, vector<PostalCode> >& stateMap, const char* filename
 	
 	cout << "Number of records read: " << records << endl;
 	cout << "Number of valid records read: " << successes << endl;
+
+	if (successes <= 0)
+		cout << "No records were read... Make sure you selected the correct file format and that the file isn't corrupt" << endl;
 
     // Close the input file
     infile.close();

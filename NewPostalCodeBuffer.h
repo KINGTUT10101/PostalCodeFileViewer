@@ -16,6 +16,11 @@ using namespace std;
 // The length is indicated by a 2-byte value at the beginning of the record
 // It assumes that each record is stored in the following format:
 // ZipCode,PlaceName,State,County,Lat,Long
+
+/** Used to read and write new DAT postal code files
+ * @author CSCI 331 Group 4
+ * @date 2023-11-09
+ */
 class NewPostalCodeBuffer : public PostalCodeBuffer {
 	public:
 			// CONSTRUCTORS

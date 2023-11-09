@@ -5,6 +5,10 @@
 
 using namespace std;
 
+/** Contains postal code information for a US city 
+ * @author CSCI 331 Group 4
+ * @date 2023-11-09
+ */
 class PostalCode {
 	public:
 			// CONSTRUCTORS

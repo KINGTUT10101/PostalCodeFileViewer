@@ -25,6 +25,11 @@ The file format is as follows. All fields after the header record size are delim
 	"field/TYPE/VALUE" - Field file schema, repeated for the number of fields (ex: height/DELIM/, = height field is delimited with a comma)
 	"field" - The field used as the primary key
 */
+
+/** Used to read, write, and validate headers for new DAT postal code files
+ * @author CSCI 331 Group 4
+ * @date 2023-11-09
+ */
 class PostalCodeHeader {
 	public:
 			// CONSTRUCTORS
